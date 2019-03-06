@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ml-tron
+
+server:
+  port: 1117
