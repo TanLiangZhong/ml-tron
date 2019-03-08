@@ -11,7 +11,7 @@ public class WalletApi {
         return ByteArray.toHexString(WalletApi.decodeFromBase58Check(base58check));
     }
 
-    public static byte[] decodeFromBase58Check(String addressBase58) {
+    private static byte[] decodeFromBase58Check(String addressBase58) {
         if (StringUtils.isEmpty(addressBase58)) {
             return null;
         }
@@ -40,7 +40,7 @@ public class WalletApi {
         return null;
     }
 
-    public static boolean addressValid(byte[] address) {
+    private static boolean addressValid(byte[] address) {
         if (ArrayUtils.isEmpty(address)) {
             return false;
         }

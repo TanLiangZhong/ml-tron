@@ -41,7 +41,7 @@ public class FullNodeApi {
      * @throws UnirestException
      */
     public static JSONObject generateAddress() throws UnirestException {
-        final String url = URL_PREFIX + "/wallet/getaccount";
+        final String url = URL_PREFIX + "/wallet/generateaddress";
         HttpResponse<JsonNode> response = Unirest.post(url).header("Content-Type", "application/json").asJson();
         return response.getBody().getObject();
     }
