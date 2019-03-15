@@ -2,8 +2,6 @@ package com.ml.tron.demo;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.ml.tron.common.WalletApi;
-import com.ml.tron.demo.bo.AddressBo;
-import com.ml.tron.demo.bo.TransactionsBo;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,11 +17,29 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     public static void main(String[] args) throws UnirestException {
-        String addr_1 = "TCVgk7V8hhfaERXA7Sx6XSTTDJK3VeTfBM";
-        System.out.println("addr_1 = " + WalletApi.base58checkToHexString(addr_1));
+        final String ownerAddress = "TN3Vtiqdga1xKsV4qAhwbbSetpV9Ybkb8S";
+        final String toAddress = "TMZr2xwFtRidpBWx6qk8oavSj7sbFTbeg8";
+        final long amount = 1000000L;
+        final String ownerAddressHex = WalletApi.base58checkToHexString(ownerAddress);
+        final String toAddressHex = WalletApi.base58checkToHexString(toAddress);
+
+//        String param = "{\"to_address\": \"" + toAddressHex + "\", \"owner_address\": \"" + ownerAddressHex + "\", \"amount\": " + amount + " }";
+//        JSONObject json = new JSONObject(param);
+//
+//        JSONObject result = FullNodeApi.createTransaction(json);
+//
+//        System.out.println("\n--------------------------------------\n");
+//        System.out.println("创建一个转账的Transaction");
+//        System.out.println("param = " + param);
+//        System.out.println("result = " + result);
+
+        String param = "{\"address\": \"" + ownerAddressHex + "\"}";
+        JSONObject json = new JSONObject(param);
+        System.out.println("json = " + json);
+        JSONObject result = SolidityNodeApi.getAccount(json);
+        System.out.println("result = " + result);
+
     }
-
-
 
 
 }

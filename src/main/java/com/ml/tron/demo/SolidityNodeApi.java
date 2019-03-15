@@ -14,7 +14,10 @@ import org.json.JSONObject;
  */
 public class SolidityNodeApi {
 
-    private static final String URL_PREFIX = "http://127.0.0.1:8091";
+    //    private static final String URL_PREFIX = "http://127.0.0.1:8091";
+    private static final String URL_PREFIX = "https://api.trongrid.io/walletsolidity";
+//    private static final String URL_PREFIX = "http://47.244.157.65:8091/walletsolidity";
+
 
     /**
      * 查询某个账号的出账交易记录
@@ -24,7 +27,7 @@ public class SolidityNodeApi {
      * @throws UnirestException
      */
     public static JSONObject getTransactionsFromThis(JSONObject param) throws UnirestException {
-        final String url = URL_PREFIX + "/walletextension/gettransactionsfromthis";
+        final String url = URL_PREFIX + "/gettransactionsfromthis";
         HttpResponse<JsonNode> response = Unirest.post(url).header("Content-Type", "application/json").body(param).asJson();
         return response.getBody().getObject();
     }
@@ -37,7 +40,7 @@ public class SolidityNodeApi {
      * @throws UnirestException
      */
     public static JSONObject getTransactionsToThis(JSONObject param) throws UnirestException {
-        final String url = URL_PREFIX + "/walletextension/gettransactionstothis";
+        final String url = URL_PREFIX + "/gettransactionstothis";
         HttpResponse<JsonNode> response = Unirest.post(url).header("Content-Type", "application/json").body(param).asJson();
         return response.getBody().getObject();
     }
@@ -50,7 +53,7 @@ public class SolidityNodeApi {
      * @throws UnirestException
      */
     public static JSONObject getAccount(JSONObject param) throws UnirestException {
-        final String url = URL_PREFIX + "/walletsolidity/getaccount";
+        final String url = URL_PREFIX + "/getaccount";
         HttpResponse<JsonNode> response = Unirest.post(url).header("Content-Type", "application/json").body(param).asJson();
         return response.getBody().getObject();
     }
