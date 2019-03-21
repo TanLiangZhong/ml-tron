@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Start up, please wait patiently..."
-nohup java -jar /opt/tron/fullnode/FullNode.jar -c /opt/tron/soliditynode/config.conf >/dev/null 2>&1 &
+nohup java -jar /data/tron/fullnode/FullNode.jar -c /data/tron/fullnode/config.conf >/dev/null 2>&1 &
 sleep 3
 FPid=`ps -ef |grep FullNode.jar |grep -v grep |awk '{print $2}'`
 if [[ -n "$FPid" ]]; then
