@@ -1,14 +1,15 @@
 package com.ml.tron.common;
 
-import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang.ArrayUtils;
+import org.spongycastle.util.encoders.Hex;
 import org.springframework.util.StringUtils;
+
+import java.util.Objects;
 
 public class WalletApi {
 
-//    private static byte addressPreFixByte = Parameter.CommonConstant.ADD_PRE_FIX_BYTE_TESTNET;
-
-    public static String base58checkToHexString(String base58check) {
-        return ByteArray.toHexString(WalletApi.decodeFromBase58Check(base58check));
+    static String base58checkToHexString(String base58check) {
+        return Hex.toHexString(Objects.requireNonNull(WalletApi.decodeFromBase58Check(base58check)));
     }
 
     private static byte[] decodeFromBase58Check(String addressBase58) {

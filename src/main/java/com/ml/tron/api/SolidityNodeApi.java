@@ -1,4 +1,4 @@
-package com.ml.tron.demo;
+package com.ml.tron.api;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -15,6 +15,7 @@ import org.json.JSONObject;
 public class SolidityNodeApi {
 
     //    private static final String URL_PREFIX = "http://127.0.0.1:8091";
+
     private static final String URL_PREFIX = "https://api.trongrid.io/walletsolidity";
 //    private static final String URL_PREFIX = "http://47.244.157.65:8091/walletsolidity";
 
